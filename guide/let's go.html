@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华华又理理</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="icon" type="image/png" href="ecust.jpg">
+</head>
+
+<body>
+
+    <h1>by sumengyang<br> 欢迎来到</h1>
+    <div class="background"><span>ECUST</span></div>
+
+    <ul id="nav">
+        <li class="slide2"></li>
+        <li><a href="history.html" target="_blank">历史</a></li>
+        <li><a href="current.html" target="_blank">目前概况</a></li>
+        <li><a href="website.html" target="_blank">常用网站</a></li>
+    </ul>
+
+
+    <h2>坐落于上海，建立于1952的华东理工大学</h2>
+
+    
+    <script>
+        const background=document.querySelector(".background")
+
+        document.addEventListener('scroll',() => {
+            const scrollY = window.scrollY
+
+            if(scrollY!== 0){
+                background.style.backgroundPosition = `calc(50% + ${scrollY}px) calc(50% + ${scrollY}px)`
+            }else{
+                background.style.backgroundPosition = ''
+            }
+        })
+    </script><!--以上是主页面的大背景-->
+
+    
+   <script>
+    $(document).ready(function() {
+        
+    $("#nav a").on("mouseover",function () {
+        var position = $(this).parent().position();
+        var width = $(this).parent().width();
+        $("#nav .slide2").css({ opacity: 1, left: +position.left, width: width}).addClass("squeeze");
+    });
+    $("#nav a").on("mouseout",function () {
+        $("#nav .slide2").css({opacity: 0 }).removeClass("squeeze");
+    });
+    var currentWidth = $("#nav li:nth-of-type(3) a").parent("li").width();
+    var current = $("#nav li:nth-of-type(3) a").position();
+
+
+    });
+   </script>
+
+  
+
+</body>
+</html>
