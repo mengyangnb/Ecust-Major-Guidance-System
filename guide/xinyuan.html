@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>华东理工大学信息科学与工程学院</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
+  <!-- 配置Tailwind自定义主题 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#004289', // 深蓝色主色调
+            secondary: '#E63946', // 红色辅助色
+            tertiary: '#F1C40F', // 金色点缀色
+            light: '#F8FAFC', // 浅色背景
+            dark: '#1E293B' // 深色文本
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <!-- 自定义工具类 -->
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .card-hover {
+        @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+      }
+      .section-padding {
+        @apply py-16 md:py-24;
+      }
+      .nav-link {
+        @apply relative px-4 py-2 text-gray-700 hover:text-primary transition-colors duration-300;
+      }
+      .nav-link::after {
+        @apply content-[''] absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+      }
+      .nav-link:hover::after {
+        @apply w-full;
+      }
+    }
+  </style>
+</head>
+
+<body class="font-sans bg-light text-dark">
+  <!-- 导航栏 -->
+  <header id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-sm shadow-sm">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="flex justify-between items-center py-4">
+        <div class="flex items-center space-x-2">
+          <div >
+            <img src="./logo.png" alt="华理" style="height: 50%;width: 50%;">
+          </div>
+          <div>
+            <h1 class="text-xl font-bold text-primary">华东理工大学</h1>
+            <p class="text-xs text-gray-500">信息科学与工程学院</p>
+          </div>
+        </div>
+        
+        <!-- 桌面导航 -->
+        <nav class="hidden md:flex items-center space-x-1">
+          <a href="#home" class="nav-link">首页</a>
+          <a href="#about" class="nav-link">学院概况</a>
+          <a href="#departments" class="nav-link">系所设置</a>
+          <a href="#faculty" class="nav-link">师资力量</a>
+          <a href="#research" class="nav-link">科研成果</a>
+          <a href="#news" class="nav-link">新闻动态</a>
+          <a href="#contact" class="nav-link">联系我们</a>
+        </nav>
+        
+        <!-- 移动端菜单按钮 -->
+        <button id="menuBtn" class="md:hidden text-gray-700 focus:outline-none">
+          <i class="fa fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- 移动端导航菜单 -->
+    <div id="mobileMenu" class="md:hidden hidden bg-white border-t">
+      <div class="container mx-auto px-4 py-3 space-y-3">
+        <a href="#home" class="block py-2 px-4 hover:bg-gray-100 rounded transition-colors">首页</a>
+        <a href="#about" class="block py-2 px-4 hover:bg-gray-100 rounded transition-colors">学院概况</a>
+        <a href="#departments" class="block py-2 px-4 hover:bg-gray-100 rounded transition-colors">系所设置</a>
+        <a href="#faculty" class="block py-2 px-4 hover:bg-gray-100 rounded transition-colors">师资力量</a>
+        <a href="#research" class="block py-2 px-4 hover:bg-gray-100 rounded transition-colors">科研成果</a>
+        <a href="#news" class="block py-2 px-4 hover:bg-gray-100 rounded transition-colors">新闻动态</a>
+        <a href="#contact" class="block py-2 px-4 hover:bg-gray-100 rounded transition-colors">联系我们</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 英雄区域 -->
+  <section id="home" class="relative h-screen flex items-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="https://picsum.photos/id/1033/1920/1080" alt="华东理工大学校园风景" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-primary/50"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 md:px-6 relative z-10">
+      <div class="max-w-3xl">
+        <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold text-white leading-tight text-shadow mb-6">
+          华东理工大学<br>信息科学与工程学院
+        </h1>
+        <p class="text-[clamp(1rem,2vw,1.25rem)] text-white/90 mb-8 max-w-2xl">
+          致力于培养具有国际视野、创新能力和实践精神的信息领域卓越人才，推动信息技术与工程应用的深度融合。
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#about" class="px-8 py-3 bg-secondary text-white rounded-full font-medium hover:bg-secondary/90 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+            了解学院
+          </a>
+          <a href="#contact" class="px-8 py-3 bg-white/20 backdrop-blur-sm text-white border border-white/30 rounded-full font-medium hover:bg-white/30 transition-all">
+            联系我们
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <a href="#about" class="text-white text-3xl">
+        <i class="fa fa-angle-down"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- 学院概况 -->
+  <section id="about" class="section-padding bg-white">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-primary mb-4">学院概况</h2>
+        <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+        <p class="text-gray-600 max-w-3xl mx-auto">华东理工大学信息科学与工程学院是国内信息领域人才培养和科学研究的重要基地之一</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div class="order-2 md:order-1">
+          <h3 class="text-2xl font-bold text-dark mb-6">历史沿革</h3>
+          <p class="text-gray-700 mb-4">
+            华东理工大学信息科学与工程学院成立于1998年，其前身为1978年建立的自动化系和1981年建立的计算机科学与工程系。经过多年的发展，学院已成为国内信息领域人才培养和科学研究的重要基地之一。
+          </p>
+          <p class="text-gray-700 mb-6">
+            学院拥有控制科学与工程、计算机科学与技术两个一级学科博士点和博士后流动站，形成了从本科到硕士、博士的完整人才培养体系。
+          </p>
+          
+          <div class="grid grid-cols-2 gap-6 mb-8">
+            <div class="bg-light p-6 rounded-lg shadow-md">
+              <div class="text-primary text-4xl font-bold mb-2">60+</div>
+              <div class="text-gray-600">全职教师</div>
+            </div>
+            <div class="bg-light p-6 rounded-lg shadow-md">
+              <div class="text-primary text-4xl font-bold mb-2">1200+</div>
+              <div class="text-gray-600">在校学生</div>
+            </div>
+            <div class="bg-light p-6 rounded-lg shadow-md">
+              <div class="text-primary text-4xl font-bold mb-2">8</div>
+              <div class="text-gray-600">系所中心</div>
+            </div>
+            <div class="bg-light p-6 rounded-lg shadow-md">
+              <div class="text-primary text-4xl font-bold mb-2">1000+</div>
+              <div class="text-gray-600">科研项目</div>
+            </div>
+          </div>
+          
+          <a href="https://cise.ecust.edu.cn/main.htm" class="inline-flex items-center text-secondary font-medium hover:text-secondary/80 transition-colors">
+            查看学院简介 <i class="fa fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+        
+        <div class="order-1 md:order-2 relative">
+          <img src="https://picsum.photos/id/28/800/600" alt="华东理工大学信息学院教学楼" class="w-full h-auto rounded-lg shadow-xl">
+          <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg max-w-xs">
+            <div class="flex items-center">
+              <div class="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                <i class="fa fa-trophy text-xl"></i>
+              </div>
+              <div class="ml-4">
+                <div class="text-sm text-gray-500">教育部重点学科</div>
+                <div class="font-bold">控制科学与工程</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 系所设置 -->
+  <section id="departments" class="section-padding bg-gray-50">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-primary mb-4">系所设置</h2>
+        <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+        <p class="text-gray-600 max-w-3xl mx-auto">学院下设多个系所和研究中心，涵盖信息领域多个重要研究方向</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- 系所卡片1 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+          <img src="https://picsum.photos/id/0/600/400" alt="自动化系" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <div class="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                <i class="fa fa-cogs"></i>
+              </div>
+              <h3 class="text-xl font-bold ml-3">自动化系</h3>
+            </div>
+            <p class="text-gray-600 mb-4">
+              自动化系是学院历史最悠久的系之一，拥有控制理论与控制工程、检测技术与自动化装置等学科方向。
+            </p>
+            <ul class="space-y-2 mb-6">
+              <li class="flex items-center text-gray-700">
+                <i class="fa fa-check-circle text-green-500 mr-2"></i>控制科学与工程一级学科博士点
+              </li>
+              <li class="flex items-center text-gray-700">
+                <i class="fa fa-check-circle text-green-500 mr-2"></i>国家级特色专业
+              </li>
+              <li class="flex items-center text-gray-700">
+                <i class="fa fa-check-circle text-green-500 mr-2"></i>教育部重点实验室
+              </li>
+            </ul>
+            <a href="https://cise.ecust.edu.cn/2020/1118/c9579a118983/page.htm" class="text-primary font-medium hover:text-primary/80 transition-colors">了解更多 <i class="fa fa-angle-right ml-1"></i></a>
+          </div>
+        </div>
+        
+        <!-- 系所卡片2 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+          <img src="https://picsum.photos/id/160/600/400" alt="计算机科学与工程系" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <div class="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                <i class="fa fa-laptop"></i>
+              </div>
+              <h3 class="text-xl font-bold ml-3">计算机科学与工程系</h3>
+            </div>
+            <p class="text-gray-600 mb-4">
+              计算机系致力于计算机科学理论、系统软件、人工智能、大数据与知识工程等方向的研究与教学。
+            </p>
+            <ul class="space-y-2 mb-6">
+              <li class="flex items-center text-gray-700">
+                <i class="fa fa-check-circle text-green-500 mr-2"></i>计算机科学与技术一级学科博士点
+              </li>
+              <li class="flex items-center text-gray-700">
+                <i class="fa fa-check-circle text-green-500 mr-2"></i>上海市重点学科
+              </li>
+              <li class="flex items-center text-gray-700">
+                <i class="fa fa-check-circle text-green-500 mr-2"></i>多个校企联合实验室
+              </li>
+            </ul>
+            <a href="#" class="text-primary font-medium hover:text-primary/80 transition-colors">了解更多 <i class="fa fa-angle-right ml-1"></i></a>
+          </div>
+        </div>
+        
+        <!-- 系所卡片3 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+          <img src="https://picsum.photos/id/180/600/400" alt="智能科学与技术系" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <div class="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                <i class="fa fa-brain"></i>
+              </div>
+              <h3 class="text-xl font-bold ml-3">智能科学与技术系</h3>
+            </div>
+            <p class="text-gray-600 mb-4">
+              智能科学与技术系聚焦人工智能基础理论、机器学习、模式识别、机器人学等前沿领域的研究。
+            </p>
+            <ul class="space-y-2 mb-6">
+              <li class="flex items-center text-gray-700">
+                <i class="fa fa-check-circle text-green-500 mr-2"></i>新兴交叉学科
+              </li>
+              <li class="flex items-center text-gray-700">
+                <i class="fa fa-check-circle text-green-500 mr-2"></i>智能系统与控制研究中心
+              </li>
+              <li class="flex items-center text-gray-700">
+                <i class="fa fa-check-circle text-green-500 mr-2"></i>与多个国际团队合作
+              </li>
+            </ul>
+            <a href="https://jwc.ecust.edu.cn/_upload/article/files/12/fd/d24a15b74870bafd68a25a29b769/4379f9ab-fc9c-41f8-8b5f-6c7459a3392d.pdf" class="text-primary font-medium hover:text-primary/80 transition-colors">了解更多 <i class="fa fa-angle-right ml-1"></i></a>
+          </div>
+        </div>
+        
+        <!-- 系所卡片4 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+          <img src="https://picsum.photos/id/119/600/400" alt="电子工程系" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <div class="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                <i class="fa fa-microchip"></i>
+              </div>
+              <h3 class="text-xl font-bold ml-3">电子工程系</h3>
+            </div>
+            <p class="text-gray-600 mb-4">
+              电子工程系专注于电路与系统、信号与信息处理、嵌入式系统等方向的研究与应用开发。
+            </p>
+            <ul class="space-y-2 mb-6">
+              <li class="flex items-center text-gray-700">
+                <i class="fa fa-check-circle text-green-500 mr-2"></i>上海市重点实验室
+              </li>
+              <li class="flex items-center text-gray-700">
+                <i class="fa fa-check-circle text-green-500 mr-2"></i>先进电子系统设计中心
+              </li>
+              <li class="flex items-center text-gray-700">
+                <i class="fa fa-check-circle text-green-500 mr-2"></i>与产业界紧密合作
+              </li>
+            </ul>
+            <a href="https://cise.ecust.edu.cn/2020/1118/c9579a118984/page.htm" class="text-primary font-medium hover:text-primary/80 transition-colors">了解更多 <i class="fa fa-angle-right ml-1"></i></a>
+          </div>
+        </div>
+        
+        <!-- 系所卡片5 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+          <img src="https://picsum.photos/id/163/600/400" alt="数据科学与工程系" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <div class="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                <i class="fa fa-database"></i>
+              </div>
+              <h3 class="text-xl font-bold ml-3">数据科学与工程系</h3>
+            </div>
+            <p class="text-gray-600 mb-4">
+              数据科学与工程系致力于大数据分析、机器学习、数据挖掘、高性能计算等领域的研究与教学。
+            </p>
+            <ul class="space-y-2 mb-6">
+              <li class="flex items-center text-gray-700">
+                <i class="fa fa-check-circle text-green-500 mr-2"></i>大数据研究中心
+              </li>
+              <li class="flex items-center text-gray-700">
+                <i class="fa fa-check-circle text-green-500 mr-2"></i>与企业共建实验室
+              </li>
+              <li class="flex items-center text-gray-700">
+                <i class="fa fa-check-circle text-green-500 mr-2"></i>跨学科研究团队
+              </li>
+            </ul>
+            <a href="#" class="text-primary font-medium hover:text-primary/80 transition-colors">了解更多 <i class="fa fa-angle-right ml-1"></i></a>
+          </div>
+        </div>
+        
+        <!-- 系所卡片6 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+          <img src="https://picsum.photos/id/183/600/400" alt="信息与通信工程系" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <div class="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                <i class="fa fa-wifi"></i>
+              </div>
+              <h3 class="text-xl font-bold ml-3">信息与通信工程系</h3>
+            </div>
+            <p class="text-gray-600 mb-4">
+              信息与通信工程系主要研究方向包括通信网络、无线通信、多媒体信息处理、量子通信等。
+            </p>
+            <ul class="space-y-2 mb-6">
+              <li class="flex items-center text-gray-700">
+                <i class="fa fa-check-circle text-green-500 mr-2"></i>通信工程本科专业
+              </li>
+              <li class="flex items-center text-gray-700">
+                <i class="fa fa-check-circle text-green-500 mr-2"></i>智能信息处理实验室
+              </li>
+              <li class="flex items-center text-gray-700">
+                <i class="fa fa-check-circle text-green-500 mr-2"></i>参与多项国家级科研项目
+              </li>
+            </ul>
+            <a href=https://cise.ecust.edu.cn/2020/1118/c9579a118984/page.htm" class="text-primary font-medium hover:text-primary/80 transition-colors">了解更多 <i class="fa fa-angle-right ml-1"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 师资力量 -->
+  <section id="faculty" class="section-padding bg-white">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-primary mb-4">师资力量</h2>
+        <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+        <p class="text-gray-600 max-w-3xl mx-auto">学院拥有一支学术水平高、教学经验丰富、年龄结构合理的师资队伍</p>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- 教师卡片1 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+          <div class="relative">
+            <img src="https://picsum.photos/id/1005/400/500" alt="张明教授" class="w-full h-64 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
+              <div class="text-white">
+                <p class="mb-2">控制理论与控制工程专家，主要研究方向为智能控制、复杂系统理论与应用。</p>
+                <div class="flex space-x-3">
+                  <a href="#" class="text-white hover:text-secondary transition-colors">
+                    <i class="fa fa-envelope"></i>
+                  </a>
+                  <a href="#" class="text-white hover:text-secondary transition-colors">
+                    <i class="fa fa-google"></i>
+                  </a>
+                  <a href="#" class="text-white hover:text-secondary transition-colors">
+                    <i class="fa fa-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-xl font-bold text-dark">张明</h3>
+            <p class="text-primary font-medium">教授，博士生导师</p>
+            <p class="text-gray-600 mt-2">自动化系</p>
+          </div>
+        </div>
+        
+        <!-- 教师卡片2 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+          <div class="relative">
+            <img src="https://picsum.photos/id/1000/400/500" alt="李华教授" class="w-full h-64 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
+              <div class="text-white">
+                <p class="mb-2">人工智能领域专家，主要研究方向为机器学习、计算机视觉、自然语言处理。</p>
+                <div class="flex space-x-3">
+                  <a href="#" class="text-white hover:text-secondary transition-colors">
+                    <i class="fa fa-envelope"></i>
+                  </a>
+                  <a href="#" class="text-white hover:text-secondary transition-colors">
+                    <i class="fa fa-google"></i>
+                  </a>
+                  <a href="#" class="text-white hover:text-secondary transition-colors">
+                    <i class="fa fa-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-xl font-bold text-dark">李华</h3>
+            <p class="text-primary font-medium">教授，博士生导师</p>
+            <p class="text-gray-600 mt-2">计算机科学与工程系</p>
+          </div>
+        </div>
+        
+        <!-- 教师卡片3 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+          <div class="relative">
+            <img src="https://picsum.photos/id/1011/400/500" alt="王芳教授" class="w-full h-64 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
+              <div class="text-white">
+                <p class="mb-2">信号处理与通信技术专家，主要研究方向为无线通信、多媒体信号处理、智能感知。</p>
+                <div class="flex space-x-3">
+                  <a href="#" class="text-white hover:text-secondary transition-colors">
+                    <i class="fa fa-envelope"></i>
+                  </a>
+                  <a href="#" class="text-white hover:text-secondary transition-colors">
+                    <i class="fa fa-google"></i>
+                  </a>
+                  <a href="#" class="text-white hover:text-secondary transition-colors">
+                    <i class="fa fa-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-xl font-bold text-dark">王芳</h3>
+            <p class="text-primary font-medium">教授，博士生导师</p>
+            <p class="text-gray-600 mt-2">信息与通信工程系</p>
+          </div>
+        </div>
+        
+        <!-- 教师卡片4 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+          <div class="relative">
+            <img src="https://picsum.photos/id/1025/400/500" alt="赵强教授" class="w-full h-64 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
+              <div class="text-white">
+                <p class="mb-2">数据科学与智能计算专家，主要研究方向为大数据分析、数据挖掘、高性能计算。</p>
+                <div class="flex space-x-3">
+                  <a href="#" class="text-white hover:text-secondary transition-colors">
+                    <i class="fa fa-envelope"></i>
+                  </a>
+                  <a href="#" class="text-white hover:text-secondary transition-colors">
+                    <i class="fa fa-google"></i>
+                  </a>
+                  <a href="#" class="text-white hover:text-secondary transition-colors">
+                    <i class="fa fa-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-xl font-bold text-dark">赵强</h3>
+            <p class="text-primary font-medium">教授，博士生导师</p>
+            <p class="text-gray-600 mt-2">数据科学与工程系</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <a href="https://www.ecust.edu.cn/580/list.htm" class="inline-block px-8 py-3 bg-primary text-white rounded-full font-medium hover:bg-primary/90 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+          查看全部教师 <i class="fa fa-angle-right ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 科研成果 -->
+  <section id="research" class="section-padding bg-gray-50">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-primary mb-4">科研成果</h2>
+        <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+        <p class="text-gray-600 max-w-3xl mx-auto">学院在多个科研领域取得了显著成果，承担了大量国家级和省部级科研项目</p>
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="lg:col-span-2">
+          <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="p-6">
+              <h3 class="text-2xl font-bold text-dark mb-6">科研项目</h3>
+              <div class="space-y-6">
+                <div class="flex flex-col md:flex-row md:items-center gap-4 p-4 bg-light rounded-lg hover:bg-gray-100 transition-colors">
+                  <div class="flex-shrink-0 h-16 w-16 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                    <i class="fa fa-flask text-2xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-lg">智能工业控制系统的安全理论与关键技术</h4>
+                    <p class="text-gray-600">国家重点研发计划项目</p>
+                    <p class="text-gray-500 text-sm">负责人：张明教授</p>
+                  </div>
+                </div>
+                
+                <div class="flex flex-col md:flex-row md:items-center gap-4 p-4 bg-light rounded-lg hover:bg-gray-100 transition-colors">
+                  <div class="flex-shrink-0 h-16 w-16 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                    <i class="fa fa-brain text-2xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-lg">面向复杂场景的深度学习理论与方法研究</h4>
+                    <p class="text-gray-600">国家自然科学基金重点项目</p>
+                    <p class="text-gray-500 text-sm">负责人：李华教授</p>
+                  </div>
+                </div>
+                
+                <div class="flex flex-col md:flex-row md:items-center gap-4 p-4 bg-light rounded-lg hover:bg-gray-100 transition-colors">
+                  <div class="flex-shrink-0 h-16 w-16 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                    <i class="fa fa-database text-2xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-lg">面向工业大数据的智能分析与决策理论及应用</h4>
+                    <p class="text-gray-600">国家自然科学基金重点项目</p>
+                    <p class="text-gray-500 text-sm">负责人：赵强教授</p>
+                  </div>
+                </div>
+                
+                <div class="flex flex-col md:flex-row md:items-center gap-4 p-4 bg-light rounded-lg hover:bg-gray-100 transition-colors">
+                  <div class="flex-shrink-0 h-16 w-16 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                    <i class="fa fa-wifi text-2xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-lg">下一代无线通信网络中的智能信号处理理论与技术</h4>
+                    <p class="text-gray-600">国家自然科学基金重大研究计划</p>
+                    <p class="text-gray-500 text-sm">负责人：王芳教授</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="mt-8 text-right">
+                <a href="https://www.ecust.edu.cn/615/list.htm" class="text-primary font-medium hover:text-primary/80 transition-colors">
+                  查看更多项目 <i class="fa fa-angle-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <div class="bg-white rounded-xl shadow-md overflow-hidden mb-8">
+            <div class="p-6">
+              <h3 class="text-2xl font-bold text-dark mb-6">科研经费</h3>
+              <div class="space-y-4">
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="text-gray-700">国家级项目</span>
+                    <span class="font-bold text-primary">45%</span>
+                  </div>
+                  <div class="w-full bg-gray-200 rounded-full h-2.5">
+                    <div class="bg-primary h-2.5 rounded-full" style="width: 45%"></div>
+                  </div>
+                </div>
+                
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="text-gray-700">省部级项目</span>
+                    <span class="font-bold text-primary">30%</span>
+                  </div>
+                  <div class="w-full bg-gray-200 rounded-full h-2.5">
+                    <div class="bg-primary h-2.5 rounded-full" style="width: 30%"></div>
+                  </div>
+                </div>
+                
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="text-gray-700">横向合作项目</span>
+                    <span class="font-bold text-primary">25%</span>
+                  </div>
+                  <div class="w-full bg-gray-200 rounded-full h-2.5">
+                    <div class="bg-primary h-2.5 rounded-full" style="width: 25%"></div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="mt-6 p-4 bg-primary/5 rounded-lg border border-primary/20">
+                <div class="text-3xl font-bold text-primary mb-1">¥1.2亿</div>
+                <div class="text-gray-600">近五年科研总经费</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="p-6">
+              <h3 class="text-2xl font-bold text-dark mb-6">发表论文</h3>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="bg-light p-4 rounded-lg text-center">
+                  <div class="text-3xl font-bold text-primary mb-1">580+</div>
+                  <div class="text-gray-600">SCI论文</div>
+                </div>
+                
+                <div class="bg-light p-4 rounded-lg text-center">
+                  <div class="text-3xl font-bold text-primary mb-1">320+</div>
+                  <div class="text-gray-600">EI论文</div>
+                </div>
+                
+                <div class="bg-light p-4 rounded-lg text-center">
+                  <div class="text-3xl font-bold text-primary mb-1">180+</div>
+                  <div class="text-gray-600">CCF A类论文</div>
+                </div>
+                
+                <div class="bg-light p-4 rounded-lg text-center">
+                  <div class="text-3xl font-bold text-primary mb-1">120+</div>
+                  <div class="text-gray-600">ESI高被引论文</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 新闻动态 -->
+  <section id="news" class="section-padding bg-white">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-primary mb-4">新闻动态</h2>
+        <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+        <p class="text-gray-600 max-w-3xl mx-auto">了解学院最新动态、学术活动和师生风采</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- 新闻卡片1 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+          <img src="./0b399b1e-3054-4327-9317-f51af108f66e.jpg" alt="信息学院举行2025届学生毕业典礼暨学位授予仪式" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center text-sm text-gray-500 mb-3">
+              <i class="fa fa-calendar-o mr-2"></i>
+              <span>2025年6月24日</span>
+              <span class="mx-2">•</span>
+              <span>学术活动</span>
+            </div>
+            <h3 class="text-xl font-bold text-dark mb-3">信息学院举行2025届学生毕业典礼暨学位授予仪式</h3>
+            <p class="text-gray-600 mb-4">
+              6月24日，信息科学与工程学院2025届学生毕业典礼暨学位授予仪式在徐汇校区实验19楼隆重举行。校党委常委、副校长王慧锋，信息学院党委书记侍洪波，院长钟伟民，学院党委副书记郭卫斌、许浩，学院副院长唐漾、谭帅，学院助理、系主任、班导师、辅导员、毕业生亲友代表等共同参加典礼。毕业典礼由侍洪波主持。
+
+
+ 
+            </p>
+            <a href="https://cise.ecust.edu.cn/2025/0626/c7700a180334/page.htm" class="text-primary font-medium hover:text-primary/80 transition-colors">阅读全文 <i class="fa fa-angle-right ml-1"></i></a>
+          </div>
+        </div>
+        
+        <!-- 新闻卡片2 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+          <img src="./ab09a222-7a2d-4088-b859-de8d7053c2fa.jpg" alt="信息科学与工程学院开展首期“生涯面对面”活动" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center text-sm text-gray-500 mb-3">
+              <i class="fa fa-calendar-o mr-2"></i>
+              <span>2025年4月27日</span>
+              <span class="mx-2">•</span>
+              <span>科研成果</span>
+            </div>
+            <h3 class="text-xl font-bold text-dark mb-3">信息科学与工程学院开展首期“生涯面对面”活动</h3>
+            <p class="text-gray-600 mb-4">
+              本学期，信息科学与工程学院以“职”引社区为核心，打造信启未来“一站式”社区建设——“四导向四维度”学生生涯规划，推出了“生涯面对面”活动，邀请校院领导、在校教师、优秀校友与同学们面对面交流，帮助同学们厘清规划思路、解答困惑疑虑。
+
+4月27日，首期“生涯面对面”活动在奉贤校区举办。通过预报名的10名同学，跟随信息学院院长钟伟民一起走进学院创新实验室，开启探索科技前沿与规划职业未来的深度之旅，在面对面交流中收获了宝贵的生涯规划“干货”。
+            </p>
+            <a href="https://newsadmin.ecust.edu.cn/_s5/2025/0429/c181a189777/page.psp" class="text-primary font-medium hover:text-primary/80 transition-colors">阅读全文 <i class="fa fa-angle-right ml-1"></i></a>
+          </div>
+        </div>
+        
+        <!-- 新闻卡片3 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+          <img src="https://picsum.photos/id/1070/600/400" alt="信息学院学生连续2年斩获全国大学生职业规划大赛上海赛区总决赛金奖" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <div class="flex items-center text-sm text-gray-500 mb-3">
+              <i class="fa fa-calendar-o mr-2"></i>
+              <span>2025年1月8日</span>
+              <span class="mx-2">•</span>
+              <span>学生活动</span>
+            </div>
+            <h3 class="text-xl font-bold text-dark mb-3">信息学院学生连续2年斩获全国大学生职业规划大赛上海赛区总决赛金奖</h3>
+            <p class="text-gray-600 mb-4">
+              近日，全国大学生职业规划大赛上海赛区再度传来捷报，华东理工大学信息学院学生展现出卓越的职业规划能力和出色的综合素质，连续2年斩获全国大学生职业规划大赛上海赛区总决赛金奖！
+            </p>
+            <a href="https://cise.ecust.edu.cn/2025/0108/c7700a174974/page.htm" class="text-primary font-medium hover:text-primary/80 transition-colors">阅读全文 <i class="fa fa-angle-right ml-1"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <a href="https://cise.ecust.edu.cn/jqdt/list.htm" class="inline-block px-8 py-3 bg-primary text-white rounded-full font-medium hover:bg-primary/90 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+          查看更多新闻 <i class="fa fa-angle-right ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系我们 -->
+  <section id="contact" class="section-padding bg-gray-50">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-primary mb-4">联系我们</h2>
+        <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+        <p class="text-gray-600 max-w-3xl mx-auto">欢迎访问华东理工大学信息科学与工程学院，期待与您的交流与合作</p>
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="lg:col-span-2">
+          <div class="bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-dark mb-6">留言咨询</h3>
+            <form>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <label for="name" class="block text-gray-700 font-medium mb-2">姓名</label>
+                  <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring focus:ring-primary/20 outline-none transition-all" placeholder="请输入您的姓名">
+                </div>
+                <div>
+                  <label for="email" class="block text-gray-700 font-medium mb-2">邮箱</label>
+                  <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring focus:ring-primary/20 outline-none transition-all" placeholder="请输入您的邮箱">
+                </div>
+              </div>
+              
+              <div class="mb-6">
+                <label for="subject" class="block text-gray-700 font-medium mb-2">主题</label>
+                <input type="text" id="subject" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring focus:ring-primary/20 outline-none transition-all" placeholder="请输入留言主题">
+              </div>
+              
+              <div class="mb-6">
+                <label for="message" class="block text-gray-700 font-medium mb-2">留言内容</label>
+                <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring focus:ring-primary/20 outline-none transition-all resize-none" placeholder="请输入您的留言内容"></textarea>
+              </div>
+              
+              <button type="submit" class="px-8 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                提交留言 <i class="fa fa-paper-plane ml-2"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+        
+        <div>
+          <div class="bg-white rounded-xl shadow-md p-8 mb-8">
+            <h3 class="text-2xl font-bold text-dark mb-6">联系方式</h3>
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <div class="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                  <i class="fa fa-map-marker"></i>
+                </div>
+                <div class="ml-4">
+                  <h4 class="font-bold text-gray-900">地址</h4>
+                  <p class="text-gray-600">上海市徐汇区梅陇路130号华东理工大学信息学院</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                  <i class="fa fa-phone"></i>
+                </div>
+                <div class="ml-4">
+                  <h4 class="font-bold text-gray-900">电话</h4>
+                  <p class="text-gray-600">021-64252000</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                  <i class="fa fa-envelope"></i>
+                </div>
+                <div class="ml-4">
+                  <h4 class="font-bold text-gray-900">邮箱</h4>
+                  <p class="text-gray-600">info@ecust.edu.cn</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                  <i class="fa fa-clock-o"></i>
+                </div>
+                <div class="ml-4">
+                  <h4 class="font-bold text-gray-900">工作时间</h4>
+                  <p class="text-gray-600">周一至周五: 8:30 - 17:30</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-dark mb-6">关注我们</h3>
+            <div class="flex space-x-4 mb-6">
+              <a href="#" class="h-12 w-12 rounded-full bg-[#07C160] flex items-center justify-center text-white hover:bg-opacity-80 transition-colors">
+                <i class="fa fa-weixin"></i>
+              </a>
+              <a href="#" class="h-12 w-12 rounded-full bg-[#E6162D] flex items-center justify-center text-white hover:bg-opacity-80 transition-colors">
+                <i class="fa fa-weibo"></i>
+              </a>
+              <a href="#" class="h-12 w-12 rounded-full bg-[#1877F2] flex items-center justify-center text-white hover:bg-opacity-80 transition-colors">
+                <i class="fa fa-facebook"></i>
+              </a>
+              <a href="#" class="h-12 w-12 rounded-full bg-[#0A66C2] flex items-center justify-center text-white hover:bg-opacity-80 transition-colors">
+                <i class="fa fa-linkedin"></i>
+              </a>
+            </div>
+            
+            <div class="bg-light p-4 rounded-lg">
+              <h4 class="font-bold text-gray-900 mb-3">订阅学院新闻</h4>
+              <p class="text-gray-600 mb-4">输入您的邮箱，获取学院最新动态和活动信息</p>
+              <div class="flex">
+                <input type="email" class="flex-grow px-4 py-2 rounded-l-lg border border-gray-300 focus:border-primary focus:ring focus:ring-primary/20 outline-none transition-all" placeholder="您的邮箱地址">
+                <button class="px-4 py-2 bg-primary text-white rounded-r-lg hover:bg-primary/90 transition-colors">
+                  <i class="fa fa-paper-plane"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="bg-dark text-white pt-16 pb-8">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div>
+          <div class="flex items-center space-x-2 mb-6">
+            <div class="h-10 w-10 rounded-md bg-white flex items-center justify-center">
+              <i class="fa fa-graduation-cap text-primary text-xl"></i>
+            </div>
+            <div>
+              <h2 class="text-xl font-bold text-white">华东理工大学</h2>
+              <p class="text-xs text-gray-400">信息科学与工程学院</p>
+            </div>
+          </div>
+          <p class="text-gray-400 mb-6">
+            致力于培养具有国际视野、创新能力和实践精神的信息领域卓越人才，推动信息技术与工程应用的深度融合。
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fa fa-weixin"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fa fa-weibo"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fa fa-facebook"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="text-lg font-bold mb-6">快速链接</h3>
+          <ul class="space-y-3">
+            <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+            <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">学院概况</a></li>
+            <li><a href="#departments" class="text-gray-400 hover:text-white transition-colors">系所设置</a></li>
+            <li><a href="#faculty" class="text-gray-400 hover:text-white transition-colors">师资力量</a></li>
+            <li><a href="#research" class="text-gray-400 hover:text-white transition-colors">科研成果</a></li>
+            <li><a href="#news" class="text-gray-400 hover:text-white transition-colors">新闻动态</a></li>
+            <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">联系我们</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-lg font-bold mb-6">资源链接</h3>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">学院公告</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">学术活动</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">人才招聘</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">学生服务</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">校友网</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">下载中心</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">图书馆</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-lg font-bold mb-6">联系方式</h3>
+          <ul class="space-y-4">
+            <li class="flex items-start">
+              <i class="fa fa-map-marker text-primary mt-1 mr-3"></i>
+              <span class="text-gray-400">上海市徐汇区梅陇路130号华东理工大学信息学院</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fa fa-phone text-primary mr-3"></i>
+              <span class="text-gray-400">021-64252000</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fa fa-envelope text-primary mr-3"></i>
+              <span class="text-gray-400">info@ecust.edu.cn</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fa fa-clock-o text-primary mr-3"></i>
+              <span class="text-gray-400">周一至周五: 8:30 - 17:30</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 pt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-gray-500 text-sm mb-4 md:mb-0">
+            © 2025 华东理工大学信息科学与工程学院. 保留所有权利.
+          </p>
+          <div class="flex space-x-6">
+            <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">隐私政策</a>
+            <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">使用条款</a>
+            <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">网站地图</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 返回顶部按钮 -->
+  <button id="backToTop" class="fixed bottom-8 right-8 h-12 w-12 rounded-full bg-primary text-white shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-primary/90 focus:outline-none">
+    <i class="fa fa-angle-up text-xl"></i>
+  </button>
+
+  <!-- JavaScript -->
+  <script>
+    // 导航栏滚动效果
+    const navbar = document.getElementById('navbar');
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 100) {
+        navbar.classList.add('py-2', 'shadow-md');
+        navbar.classList.remove('py-4', 'shadow-sm');
+        backToTop.classList.remove('opacity-0', 'invisible');
+        backToTop.classList.add('opacity-100', 'visible');
+      } else {
+        navbar.classList.add('py-4', 'shadow-sm');
+        navbar.classList.remove('py-2', 'shadow-md');
+        backToTop.classList.add('opacity-0', 'invisible');
+        backToTop.classList.remove('opacity-100', 'visible');
+      }
+    });
+    
+    // 移动端菜单切换
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    menuBtn.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+      if (mobileMenu.classList.contains('hidden')) {
+        menuBtn.innerHTML = '<i class="fa fa-bars text-2xl"></i>';
+      } else {
+        menuBtn.innerHTML = '<i class="fa fa-times text-2xl"></i>';
+      }
+    });
+    
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        // 关闭移动菜单（如果打开）
+        if (!mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+          menuBtn.innerHTML = '<i class="fa fa-bars text-2xl"></i>';
+        }
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // 返回顶部按钮
+    backToTop.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+</body>
+</html>
+    
